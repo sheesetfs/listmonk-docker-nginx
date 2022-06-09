@@ -12,16 +12,16 @@ Hi everyone! 👋 This repo is just an example of how you can potentially set up
 
 #### 2. Set Listmonk admin username, password and database password
 	nano config.toml
-Edit the following lines:-
-line 12: admin username
-line 13: admin password
+Edit the following lines:- <br>
+line 12: admin username <br>
+line 13: admin password <br>
 line 20: database password (same password has to be updated on docker-compose.yml)
 
 #### 3. Set Docker timezone and database password
 	nano docker-compose.yml
-Edit the following lines:
-line 15: set [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-line 24: set DB password (should be same as in config.toml)
+Edit the following lines: <br>
+line 15: set [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) <br>
+line 24: set DB password (should be same as in config.toml) <br>
 
 #### 4. Set Nginx domain name
 	nano data/nginx/listmonk.conf
