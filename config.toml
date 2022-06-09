@@ -10,14 +10,14 @@ address = "0.0.0.0:9000"
 # IMPORTANT: Leave both values empty to disable authentication on admin
 # only where an external authentication is already setup.
 admin_username = "listmonk"
-admin_password = "$ecure_P@ssw0rd"
+admin_password = "securePassword"
 
 # Database.
 [db]
 host = "listmonk_db"
 port = 5432
 user = "listmonk"
-password = "$ecure_DB_P@ssw0rd"
+password = "securePassword"
 database = "listmonk"
 ssl_mode = "disable"
 max_open = 25
