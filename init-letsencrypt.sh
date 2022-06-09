@@ -5,10 +5,10 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(example.com)
+domains=(example.com www.example.com)
 rsa_key_size=4096
 data_path="./data/certbot"
-email="" # Adding a valid address is strongly recommended
+email="user@example.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
 if [ -d "$data_path" ]; then
@@ -39,7 +39,7 @@ echo
 
 
 echo "### Starting nginx ..."
-docker-compose up --force-recreate -d # nginx
+docker-compose up --force-recreate -d nginx
 echo
 
 echo "### Deleting dummy certificate for $domains ..."
@@ -78,4 +78,3 @@ echo
 
 echo "### Reloading nginx ..."
 docker-compose exec nginx nginx -s reload
-

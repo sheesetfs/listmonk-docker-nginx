@@ -11,22 +11,30 @@ x-app-defaults: &app-defaults
     - "9000:9000"
   networks:
     - listmonk
+  environment:
+    - TZ=Asia/Kolkata
 
 x-db-defaults: &db-defaults
-    image: postgres:11
-    ports:
-      - "9432:5432"
-    networks:
-      - listmonk
-    environment:
-      - POSTGRES_PASSWORD=listmonk
-      - POSTGRES_USER=listmonk
-      - POSTGRES_DB=listmonk
-    restart: unless-stopped
+  image: postgres:13
+  ports:
+    - "9432:5432"
+  networks:
+    - listmonk
+  environment:
+    - POSTGRES_PASSWORD=$ecure_DB_P@ssw0rd
+    - POSTGRES_USER=listmonk
+    - POSTGRES_DB=listmonk
+  restart: unless-stopped
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U listmonk"]
+    interval: 10s
+    timeout: 5s
+    retries: 6
 
 services:
   db:
     <<: *db-defaults
+    container_name: listmonk_db
     volumes:
       - type: volume
         source: listmonk-data
@@ -34,13 +42,14 @@ services:
 
   app:
     <<: *app-defaults
+    container_name: listmonk_app
     depends_on:
       - db
-    command: "./listmonk --static-dir=/listmonk/static"
     volumes:
-      - ./config.toml/:/listmonk/config.toml
+      - ./config.toml:/listmonk/config.toml
       - ./static:/listmonk/static
-  
+      - ./data/uploads:/listmonk/uploads
+
   nginx:
     image: nginx:mainline-alpine
     restart: unless-stopped

@@ -15,6 +15,20 @@
                 color: #444;
             }
 
+            pre {
+                background: #f4f4f4f4;
+                padding: 2px;
+            }
+
+            table {
+                width: 100%;
+                border: 1px solid #ddd;
+            }
+            table td {
+                border-color: #ddd;
+                padding: 5px;
+            }
+
             .wrap {
                 background-color: #fff;
                 padding: 30px;
@@ -24,7 +38,7 @@
             }
 
             .button {
-                background: #7f2aff;
+                background: #0055d4;
                 border-radius: 3px;
                 text-decoration: none !important;
                 color: #fff !important;
@@ -43,6 +57,7 @@
             }
                 .footer a {
                     color: #888;
+                    margin-right: 5px;
                 }
 
             .gutter {
@@ -51,10 +66,11 @@
 
             img {
                 max-width: 100%;
+                height: auto;
             }
 
             a {
-                color: #7f2aff;
+                color: #0055d4;
             }
                 a:hover {
                     color: #111;
@@ -79,6 +95,7 @@
         <p>
             {{ L.T "email.unsubHelp" }}
             <a href="{{ UnsubscribeURL }}" style="color: #888;">{{ L.T "email.unsub" }}</a>
+            <a href="{{ MessageURL }}" style="color: #888;">{{ L.T "email.viewInBrowser" }}</a>
         </p>
         <p>Powered by <a href="https://listmonk.app" target="_blank" style="color: #888;">listmonk</a></p>
     </div>
