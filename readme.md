@@ -36,4 +36,4 @@ Set domain/subdomain in line 8, and email address in line 11
 
 ### 🚀 Installation & Launch
 
-Run `/bin/bash init-letsencrypt.sh` to get the certificates set up. It will also start listmonk during the process.
+Run `/bin/bash init-letsencrypt.sh` to get the certificates set up. It will also start listmonk during the process. Now head over to the domain/subdomain that you've setup.
