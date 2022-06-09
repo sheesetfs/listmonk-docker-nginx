@@ -23,13 +23,13 @@ Edit the following lines: <br>
 line 15: set [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) <br>
 line 24: set DB password (should be same as in config.toml) <br>
 
-#### 4. Set Nginx domain name
+#### 4. Set Nginx domain/subdomain name
 	nano data/nginx/listmonk.conf
-Set the domain name in the following lines: 3, 14, 17, 18
+Set the domain/subdomain name in the following lines: 3, 14, 17, 18
 
-#### 5. Set Let's Encrypt domain and email
+#### 5. Set Let's Encrypt domain/subdomain and email for SSL certificates
 	nano init-letsencrypt.sh
-Set domain in line 8, and email address in line 11
+Set domain/subdomain in line 8, and email address in line 11
 
 #### 6. Set init-letsencrypt.sh as executable
 	chmod +x init-letsencrypt.sh
